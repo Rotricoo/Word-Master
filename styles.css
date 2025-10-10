@@ -14,10 +14,6 @@
   --incorrect-color: #ec0000;
   --almostThere-color: #ffd500;
 
-  /* Keyboard colors */
-  --keyboard-bg: #d3d6da;
-  --keyboard-text: #1a1a1b;
-
   /* Typography */
   --bold-font: 700;
 }
@@ -28,8 +24,6 @@
   --bg-color: #121213;
   --Clear-color: #565758;
   --dark-color: #ffffff;
-  --keyboard-bg: #818384;
-  --keyboard-text: #ffffff;
 }
 
 /* =====================================
@@ -53,7 +47,7 @@ body {
 
 main {
   margin: 0;
-  padding: 0 0.5rem; /* ✅ Reduzido para mobile */
+  padding: 0 1rem;
 }
 
 /* =====================================
@@ -62,21 +56,21 @@ main {
 
 .navBar {
   border-bottom: 0.1rem solid var(--fontBase);
-  padding: 1rem 0.5rem; /* ✅ Reduzido padding mobile */
+  padding: 1rem 0.5rem;
   text-align: center;
   position: relative;
-  display: flex; /* ✅ NOVO: Flex para mobile */
-  flex-direction: column; /* ✅ NOVO: Coluna no mobile */
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* ✅ NOVO: Espaço entre elementos */
+  gap: 0.5rem;
 }
 
 .brandName {
-  font-size: 2rem; /* ✅ Menor no mobile */
+  font-size: 2rem;
   font-weight: var(--bold-font);
   margin: 0;
   color: var(--fontBase);
-  order: 1; /* ✅ NOVO: Título primeiro */
+  order: 1;
 }
 
 /* Winner state animation */
@@ -86,10 +80,10 @@ main {
 
 /* Header controls (theme toggle, level button) */
 .controls {
-  position: static; /* ✅ NOVO: Não absoluto no mobile */
+  position: static;
   display: flex;
-  gap: 0.8rem; /* ✅ Reduzido gap */
-  order: 2; /* ✅ NOVO: Controles depois do título */
+  gap: 0.8rem;
+  order: 2;
 }
 
 .theme-toggle,
@@ -97,8 +91,8 @@ main {
   background: var(--Clear-color);
   border: none;
   border-radius: 0.5rem;
-  padding: 0.6rem; /* ✅ Menor padding mobile */
-  font-size: 1.4rem; /* ✅ Menor fonte mobile */
+  padding: 0.6rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -115,15 +109,15 @@ main {
 
 .level-indicator {
   text-align: center;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
 }
 
 .level-text {
   background: var(--almostThere-color);
   color: var(--dark-color);
-  padding: 0.4rem 1rem; /* ✅ Reduzido padding */
+  padding: 0.5rem 1.2rem;
   border-radius: 2rem;
-  font-size: 0.9rem; /* ✅ Menor fonte mobile */
+  font-size: 1.1rem;
   font-weight: var(--bold-font);
   display: inline-block;
 }
@@ -133,20 +127,20 @@ main {
    ===================================== */
 
 .scoreboard {
-  max-width: 28rem; /* ✅ Menor no mobile */
+  max-width: 30rem;
   width: 100%;
-  margin: 0.5rem auto 1rem auto; /* ✅ Margens reduzidas */
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  row-gap: 0.4rem; /* ✅ Menor gap */
-  column-gap: 0.4rem; /* ✅ Menor gap */
+  row-gap: 0.6rem;
+  column-gap: 0.6rem;
 }
 
 /* Individual letter tiles */
 .scoreboard-letter {
-  height: 3rem; /* ✅ Menor altura mobile */
-  width: 3rem; /* ✅ Menor largura mobile */
-  font-size: 2rem; /* ✅ Menor fonte mobile */
+  height: 3.5rem;
+  width: 3.5rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   border: 3px solid var(--Clear-color);
   font-weight: var(--bold-font);
@@ -179,6 +173,12 @@ main {
   border-color: var(--correct-color);
 }
 
+.scoreboard-letter.discovered {
+  background: #22c55e;
+  color: white;
+  border-color: #22c55e;
+}
+
 .scoreboard-letter.close {
   background: var(--almostThere-color);
   color: white;
@@ -205,94 +205,15 @@ main {
 
 .attempt-counter {
   text-align: center;
-  font-size: 1.4rem; /* ✅ Menor no mobile */
+  font-size: 1.6rem;
   font-weight: var(--bold-font);
-  margin: 1rem auto; /* ✅ Menor margem */
+  margin: 2rem auto;
   color: var(--fontBase);
-  padding: 0.8rem; /* ✅ Menor padding */
-  max-width: 20rem; /* ✅ Menor largura */
+  padding: 1rem;
+  max-width: 25rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 0.8rem;
   box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
-}
-
-/* =====================================
-   VIRTUAL KEYBOARD (MOBILE ONLY)
-   ===================================== */
-
-.keyboard {
-  max-width: 100%; /* ✅ NOVO: 100% da tela */
-  width: 100%; /* ✅ NOVO: Largura total */
-  margin: 0.5rem auto 1rem auto; /* ✅ Margens reduzidas */
-  padding: 0 0.3rem; /* ✅ Padding menor */
-  display: block;
-}
-
-.keyboard-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0.5rem; /* ✅ Menor espaçamento */
-  gap: 0.3rem; /* ✅ Gap menor entre teclas */
-}
-
-/* Offset middle row for QWERTY layout */
-.keyboard-row:nth-child(2) {
-  padding: 0 0.8rem; /* ✅ Padding reduzido */
-}
-
-/* Individual keyboard keys */
-.key {
-  background: var(--keyboard-bg);
-  color: var(--keyboard-text);
-  border: none;
-  border-radius: 0.3rem; /* ✅ Menor border radius */
-  padding: 1rem 0.3rem; /* ✅ Padding reduzido */
-  font-size: 1rem; /* ✅ Fonte menor */
-  font-weight: var(--bold-font);
-  cursor: pointer;
-  transition: all 0.1s ease;
-  min-width: 2.8rem; /* ✅ Largura mínima menor */
-  text-transform: uppercase;
-  flex: 1; /* ✅ NOVO: Distribui espaço igualmente */
-  max-width: 3.5rem; /* ✅ NOVO: Largura máxima */
-}
-
-.key:hover {
-  background: var(--dark-color);
-  color: var(--bg-color);
-}
-
-.key:active {
-  transform: scale(0.95);
-}
-
-/* Special keys (Enter, Backspace) */
-.key-enter,
-.key-backspace {
-  flex: 1.8; /* ✅ Menor que antes */
-  font-size: 0.8rem; /* ✅ Fonte menor para caber */
-  min-width: 4rem; /* ✅ Largura mínima reduzida */
-}
-
-/* Keyboard key states (based on letter usage) */
-.key.correct {
-  background: var(--correct-color);
-  color: white;
-}
-
-.key.close {
-  background: var(--almostThere-color);
-  color: white;
-}
-
-.key.wrong {
-  background: var(--incorrect-color);
-  color: white;
-}
-
-.key.used {
-  background: var(--dark-color);
-  color: var(--bg-color);
 }
 
 /* =====================================
@@ -323,21 +244,21 @@ main {
 
 .loading-content {
   background: var(--bg-color);
-  padding: 2rem; /* ✅ Menor no mobile */
+  padding: 3rem;
   border-radius: 1rem;
   text-align: center;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-  margin: 0 1rem; /* ✅ NOVO: Margem lateral mobile */
+  margin: 0 1rem;
 }
 
 .loading-spinner {
-  font-size: 3rem; /* ✅ Menor no mobile */
+  font-size: 4rem;
   animation: spin 1.8s linear infinite;
   margin-bottom: 1rem;
 }
 
 .loading-text {
-  font-size: 1.4rem; /* ✅ Menor no mobile */
+  font-size: 1.6rem;
   font-weight: var(--bold-font);
   color: var(--fontBase);
 }
@@ -359,30 +280,30 @@ main {
   justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
-  padding: 1rem; /* ✅ NOVO: Padding mobile */
+  padding: 1rem;
 }
 
 .modal-content {
   background: var(--bg-color);
-  padding: 2rem; /* ✅ Menor no mobile */
+  padding: 2.5rem;
   border-radius: 1rem;
   text-align: center;
-  max-width: 35rem; /* ✅ Menor máximo */
-  width: 100%; /* ✅ NOVO: 100% da largura disponível */
+  max-width: 40rem;
+  width: 100%;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
   animation: slideUp 0.3s ease;
 }
 
 .modal-content h2 {
-  font-size: 1.8rem; /* ✅ Menor no mobile */
-  margin-bottom: 1.5rem; /* ✅ Menor margem */
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: var(--fontBase);
 }
 
 /* Modal buttons container */
 .modal-buttons {
   display: flex;
-  gap: 0.8rem; /* ✅ Gap menor */
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -391,13 +312,13 @@ main {
 .modal-restart,
 .modal-close {
   border: none;
-  padding: 0.8rem 1.5rem; /* ✅ Padding menor */
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
-  font-size: 1.4rem; /* ✅ Fonte menor */
+  font-size: 1.6rem;
   font-weight: var(--bold-font);
   cursor: pointer;
   transition: background 0.3s ease;
-  min-width: 10rem; /* ✅ Largura mínima menor */
+  min-width: 12rem;
 }
 
 .modal-restart {
@@ -431,23 +352,23 @@ main {
   justify-content: center;
   z-index: 1001;
   animation: fadeIn 0.3s ease;
-  padding: 1rem; /* ✅ NOVO: Padding mobile */
+  padding: 1rem;
 }
 
 .level-modal-content {
   background: var(--bg-color);
-  padding: 1.5rem; /* ✅ Menor no mobile */
+  padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  max-width: 30rem; /* ✅ Menor máximo */
-  width: 100%; /* ✅ NOVO: 100% da largura disponível */
+  max-width: 35rem;
+  width: 100%;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
   animation: slideUp 0.3s ease;
 }
 
 .level-modal h2 {
-  font-size: 1.6rem; /* ✅ Menor no mobile */
-  margin-bottom: 1.2rem; /* ✅ Menor margem */
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
   color: var(--fontBase);
 }
 
@@ -455,14 +376,14 @@ main {
 .level-options {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem; /* ✅ Gap menor */
-  margin-bottom: 1.2rem; /* ✅ Margem menor */
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .level-option {
   background: var(--Clear-color);
   border: none;
-  padding: 0.8rem; /* ✅ Padding menor */
+  padding: 1rem;
   border-radius: 0.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -480,13 +401,13 @@ main {
 }
 
 .level-title {
-  font-size: 1.2rem; /* ✅ Menor no mobile */
+  font-size: 1.3rem;
   font-weight: var(--bold-font);
-  margin-bottom: 0.2rem; /* ✅ Margem menor */
+  margin-bottom: 0.3rem;
 }
 
 .level-description {
-  font-size: 1rem; /* ✅ Menor no mobile */
+  font-size: 1.1rem;
   opacity: 0.8;
 }
 
@@ -494,9 +415,9 @@ main {
   background: var(--correct-color);
   color: white;
   border: none;
-  padding: 1rem 2rem; /* ✅ Padding menor */
+  padding: 1.2rem 2.5rem;
   border-radius: 0.8rem;
-  font-size: 1.2rem; /* ✅ Fonte menor */
+  font-size: 1.4rem;
   font-weight: var(--bold-font);
   cursor: pointer;
   transition: background 0.3s ease;
@@ -517,12 +438,12 @@ main {
   transform: translate(-50%, -50%);
   background: var(--incorrect-color);
   color: white;
-  padding: 0.8rem 1.5rem; /* ✅ Padding menor mobile */
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
   font-weight: var(--bold-font);
   z-index: 999;
   animation: fadeInOut 2s ease;
-  font-size: 1.2rem; /* ✅ NOVO: Fonte definida */
+  font-size: 1.4rem;
 }
 
 /* =====================================
@@ -668,22 +589,25 @@ main {
    ===================================== */
 
 @media (min-width: 768px) {
-  /* ✅ RESET para desktop - Header volta ao normal */
+  main {
+    padding: 0 3rem;
+  }
+
   .navBar {
-    flex-direction: row; /* ✅ NOVO: Linha no desktop */
-    justify-content: center; /* ✅ NOVO: Centralizar */
+    flex-direction: row;
+    justify-content: center;
     padding: 1.5rem;
   }
 
   .brandName {
-    font-size: 3.5rem; /* ✅ Grande no desktop */
+    font-size: 3.5rem;
   }
 
   .controls {
-    position: absolute; /* ✅ NOVO: Volta ao absoluto */
+    position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    order: unset; /* ✅ NOVO: Remove order */
+    order: unset;
   }
 
   .theme-toggle,
@@ -692,20 +616,10 @@ main {
     font-size: 1.8rem;
   }
 
-  /* Layout adjustments for desktop */
-  main {
-    padding: 0 3rem;
-  }
-
-  .level-text {
-    font-size: 1.4rem;
-    padding: 0.5rem 1.5rem;
-  }
-
   /* Scoreboard scaling */
   .scoreboard {
     max-width: 40rem;
-    margin: 2rem auto;
+    margin: 1.3rem auto;
     row-gap: 1rem;
     column-gap: 1rem;
   }
@@ -718,15 +632,10 @@ main {
 
   /* Counter scaling */
   .attempt-counter {
-    font-size: 2rem;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 25rem;
-  }
-
-  /* Hide virtual keyboard on desktop */
-  .keyboard {
-    display: none;
+    font-size: 1rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 20rem;
   }
 
   /* Loading overlay scaling */
@@ -771,6 +680,11 @@ main {
   }
 
   /* Level modal desktop layout */
+  .level-text {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+
   .level-modal {
     padding: 0;
   }
@@ -798,7 +712,7 @@ main {
   }
 
   .level-title {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin-bottom: 0.3rem;
   }
 
