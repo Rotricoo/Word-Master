@@ -21,13 +21,6 @@ This project started as part of the [Complete Intro to Web Development](https://
 - **Medium Mode**: First letter revealed as hint
 - **Hard Mode**: No hints (classic Wordle experience)
 
-### Smart Features
-
-- **Progressive Discovery**: Correctly guessed letters automatically appear in subsequent attempts
-- **Protected Letters**: Discovered letters cannot be accidentally deleted
-- **Ghost Feedback**: Invalid words show temporary ghost letters
-- **Intelligent Input**: Automatically skips to available positions
-
 ### UI/UX Enhancements
 
 - **Dark/Light Theme** with persistence
@@ -45,20 +38,11 @@ This project started as part of the [Complete Intro to Web Development](https://
 
 ## Design Decisions
 
-### Enhanced from Original
-
 - **Added difficulty system** to make the game accessible for different skill levels
 - **Implemented theme switching** for better user preference support
 - **Created progressive letter discovery** to reduce frustration
 - **Built responsive design** for cross-device compatibility
 - **Added professional UI elements** like modals and loading states
-
-### Technical Improvements
-
-- **Refactored to modern JavaScript** with async/await patterns
-- **Organized CSS architecture** with logical sections and documentation
-- **Implemented state management** for game progression tracking
-- **Added comprehensive error handling** for robust user experience
 
 ## License
 
