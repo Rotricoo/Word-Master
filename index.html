@@ -1,92 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Word Master</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
   </head>
+
   <body>
-    <header class="navBar">
-      <h1 class="brandName">Word Masters</h1>
-      <div class="controls">
-        <button class="theme-toggle" title="Toggle Dark Mode">🌙</button>
-        <button class="level-btn" title="Change Difficulty">📊</button>
+    <!-- Block header-->
+    <header class="header">
+      <h1 class="header__title">Word Masters</h1>
+      <div class="header__controls">
+        <button class="header__theme-toggle" title="Toggle Dark Mode">🌙</button>
+        <button class="header__level-button" title="Change Difficulty">📊</button>
       </div>
     </header>
-    <main>
-      <!-- Level indicator -->
-      <div class="level-indicator">
-        <span class="level-text">Level: Easy</span>
-      </div>
 
-      <div class="scoreboard">
-        <div class="scoreboard-letter" id="letter-0"></div>
-        <div class="scoreboard-letter" id="letter-1"></div>
-        <div class="scoreboard-letter" id="letter-2"></div>
-        <div class="scoreboard-letter" id="letter-3"></div>
-        <div class="scoreboard-letter" id="letter-4"></div>
-        <div class="scoreboard-letter" id="letter-5"></div>
-        <div class="scoreboard-letter" id="letter-6"></div>
-        <div class="scoreboard-letter" id="letter-7"></div>
-        <div class="scoreboard-letter" id="letter-8"></div>
-        <div class="scoreboard-letter" id="letter-9"></div>
-        <div class="scoreboard-letter" id="letter-10"></div>
-        <div class="scoreboard-letter" id="letter-11"></div>
-        <div class="scoreboard-letter" id="letter-12"></div>
-        <div class="scoreboard-letter" id="letter-13"></div>
-        <div class="scoreboard-letter" id="letter-14"></div>
-        <div class="scoreboard-letter" id="letter-15"></div>
-        <div class="scoreboard-letter" id="letter-16"></div>
-        <div class="scoreboard-letter" id="letter-17"></div>
-        <div class="scoreboard-letter" id="letter-18"></div>
-        <div class="scoreboard-letter" id="letter-19"></div>
-        <div class="scoreboard-letter" id="letter-20"></div>
-        <div class="scoreboard-letter" id="letter-21"></div>
-        <div class="scoreboard-letter" id="letter-22"></div>
-        <div class="scoreboard-letter" id="letter-23"></div>
-        <div class="scoreboard-letter" id="letter-24"></div>
-        <div class="scoreboard-letter" id="letter-25"></div>
-        <div class="scoreboard-letter" id="letter-26"></div>
-        <div class="scoreboard-letter" id="letter-27"></div>
-        <div class="scoreboard-letter" id="letter-28"></div>
-        <div class="scoreboard-letter" id="letter-29"></div>
-      </div>
+    <!-- Block Level indicator -->
+    <div class="level-indicator">
+      <span class="level-indicator__text">Level: Easy</span>
+    </div>
 
-      <div class="attempt-counter">Tentative:</div>
-    </main>
+    <!-- Bloco Scoreboard -->
+    <div class="scoreboard">
+      <div class="scoreboard__letter" id="letter-0"></div>
+      <div class="scoreboard__letter" id="letter-1"></div>
+      <div class="scoreboard__letter" id="letter-2"></div>
+      <div class="scoreboard__letter" id="letter-3"></div>
+      <div class="scoreboard__letter" id="letter-4"></div>
+      <div class="scoreboard__letter" id="letter-5"></div>
+      <div class="scoreboard__letter" id="letter-6"></div>
+      <div class="scoreboard__letter" id="letter-7"></div>
+      <div class="scoreboard__letter" id="letter-8"></div>
+      <div class="scoreboard__letter" id="letter-9"></div>
+      <div class="scoreboard__letter" id="letter-10"></div>
+      <div class="scoreboard__letter" id="letter-11"></div>
+      <div class="scoreboard__letter" id="letter-12"></div>
+      <div class="scoreboard__letter" id="letter-13"></div>
+      <div class="scoreboard__letter" id="letter-14"></div>
+      <div class="scoreboard__letter" id="letter-15"></div>
+      <div class="scoreboard__letter" id="letter-16"></div>
+      <div class="scoreboard__letter" id="letter-17"></div>
+      <div class="scoreboard__letter" id="letter-18"></div>
+      <div class="scoreboard__letter" id="letter-19"></div>
+      <div class="scoreboard__letter" id="letter-20"></div>
+      <div class="scoreboard__letter" id="letter-21"></div>
+      <div class="scoreboard__letter" id="letter-22"></div>
+      <div class="scoreboard__letter" id="letter-23"></div>
+      <div class="scoreboard__letter" id="letter-24"></div>
+      <div class="scoreboard__letter" id="letter-25"></div>
+      <div class="scoreboard__letter" id="letter-26"></div>
+      <div class="scoreboard__letter" id="letter-27"></div>
+      <div class="scoreboard__letter" id="letter-28"></div>
+      <div class="scoreboard__letter" id="letter-29"></div>
+    </div>
 
-    <!-- Loading overlay -->
+    <!-- Block Attempt Counter-->
+    <div class="attempt-counter">Tentative:</div>
+
+    <!-- Block Loading overlay -->
     <div class="loading-overlay">
-      <div class="loading-content">
-        <div class="loading-spinner">🌀</div>
-        <div class="loading-text">Loading...</div>
+      <div class="loading-overlay__content">
+        <div class="loading-overlay__spinner">🌀</div>
+        <div class="loading-overlay__text">Loading...</div>
       </div>
     </div>
 
-    <!-- Level selection modal -->
+    <!-- Block level selection modal -->
     <div class="level-modal" style="display: none">
-      <div class="level-modal-content">
-        <h2>Choose Your Difficulty</h2>
-        <div class="level-options">
-          <button class="level-option" data-level="easy">
-            <div class="level-title">Easy</div>
-            <div class="level-description">First 2 letters revealed</div>
+      <div class="level-modal__content">
+        <h2 class="level-modal__title">Choose Your Difficulty</h2>
+        <div class="level-modal__options">
+          <button class="level-modal__option" data-level="easy">
+            <div class="level-modal__difficulty">Easy</div>
+            <div class="level-modal__description">First 2 letters revealed</div>
           </button>
-          <button class="level-option" data-level="medium">
-            <div class="level-title">Medium</div>
-            <div class="level-description">First letter revealed</div>
+          <button class="level-modal__option" data-level="medium">
+            <div class="level-modal__difficulty">Medium</div>
+            <div class="level-modal__description">First letter revealed</div>
           </button>
-          <button class="level-option" data-level="hard">
-            <div class="level-title">Hard</div>
-            <div class="level-description">No hints</div>
+          <button class="level-modal__option" data-level="hard">
+            <div class="level-modal__difficulty">Hard</div>
+            <div class="level-modal__description">No hints</div>
           </button>
         </div>
-        <button class="level-start-btn">Start Game</button>
+        <button class="level-modal__start-button">Start Game</button>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="javascript/main.js"></script>
   </body>
 </html>
