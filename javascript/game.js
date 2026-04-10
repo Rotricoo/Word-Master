@@ -1,5 +1,5 @@
 import { ANSWER_LENGTH, ROUNDS } from "./constants.js";
-import { letters } from "./domElements.js";
+import { letters, attemptCounter } from "./domElements.js";
 import { showModal } from "./modal.js";
 import { isLetter, createLetterCountMap, setLoading } from "./utilities.js";
 import { showTemporaryMessage } from "./interface.js";
@@ -43,7 +43,9 @@ export async function init() {
 
   // FETCH WORD FROM API
 
-  const res = await fetch("https://words.dev-apis.com/word-of-the-day?random=1");
+  const res = await fetch(
+    "https://words.dev-apis.com/word-of-the-day?random=1",
+  );
   const resObj = await res.json();
   const word = resObj.word.toUpperCase();
   const wordParts = word.split("");
@@ -71,13 +73,16 @@ export async function init() {
   // Manages letters discovered by the player during gameplay
 
   function applyDiscoveredLetters(row) {
-    for (let pos = 0; pos < ANSWER_LENGTH; pos++) {
-      if (gameState.discoveredLetters[pos]) {
-        const letterElement = letters[row * ANSWER_LENGTH + pos];
-        letterElement.innerText = gameState.discoveredLetters[pos];
+    for (let position = 0; position < ANSWER_LENGTH; position++) {
+      if (gameState.discoveredLetters[position]) {
+        const letterElement = letters[row * ANSWER_LENGTH + position];
+        letterElement.innerText = gameState.discoveredLetters[position];
 
         // Different styling for original hints vs player discoveries
-        if ((gameState.currentLevel === "easy" && pos < 2) || (gameState.currentLevel === "medium" && pos < 1)) {
+        if (
+          (gameState.currentLevel === "easy" && position < 2) ||
+          (gameState.currentLevel === "medium" && position < 1)
+        ) {
           letterElement.classList.add("scoreboard__letter--correct");
         } else {
           letterElement.classList.add("scoreboard__letter--discovered");
@@ -123,11 +128,13 @@ export async function init() {
       const lastPosition = ANSWER_LENGTH - 1;
       if (!discoveredLetters[lastPosition]) {
         // como coloco o gameState. sendo que ele nao permite por conta do !
-        currentGuess = currentGuess.substring(0, currentGuess.length - 1) + letter;
+        currentGuess =
+          currentGuess.substring(0, currentGuess.length - 1) + letter;
       }
     }
 
-    const targetElement = letters[ANSWER_LENGTH * currentRow + currentGuess.length - 1];
+    const targetElement =
+      letters[ANSWER_LENGTH * currentRow + currentGuess.length - 1];
     targetElement.innerText = letter;
     targetElement.classList.remove("scoreboard__letter--ghost");
   }
@@ -145,7 +152,8 @@ export async function init() {
     }
 
     currentGuess = currentGuess.substring(0, currentGuess.length - 1);
-    const targetElement = letters[ANSWER_LENGTH * currentRow + currentGuess.length];
+    const targetElement =
+      letters[ANSWER_LENGTH * currentRow + currentGuess.length];
 
     if (targetElement.classList.contains("scoreboard__letter--ghost")) {
       targetElement.classList.add("scoreboard__letter--ghost");
@@ -157,9 +165,13 @@ export async function init() {
   function markInvalidWord() {
     // Shake animation for invalid word
     for (let i = 0; i < ANSWER_LENGTH; i++) {
-      letters[currentRow * ANSWER_LENGTH + i].classList.remove("scoreboard__letter--invalid");
+      letters[currentRow * ANSWER_LENGTH + i].classList.remove(
+        "scoreboard__letter--invalid",
+      );
       setTimeout(function () {
-        letters[currentRow * ANSWER_LENGTH + i].classList.add("scoreboard__letter--invalid");
+        letters[currentRow * ANSWER_LENGTH + i].classList.add(
+          "scoreboard__letter--invalid",
+        );
       }, 10);
     }
 
@@ -171,7 +183,10 @@ export async function init() {
         const letterElement = letters[currentRow * ANSWER_LENGTH + i];
         letterElement.classList.remove("scoreboard__letter--invalid");
 
-        const isHintOrDiscovered = (currentLevel === "easy" && i < 2) || (currentLevel === "medium" && i < 1) || gameState.discoveredLetters[i];
+        const isHintOrDiscovered =
+          (currentLevel === "easy" && i < 2) ||
+          (currentLevel === "medium" && i < 1) ||
+          gameState.discoveredLetters[i];
 
         if (!isHintOrDiscovered) {
           letterElement.classList.add("scoreboard__letter--ghost");
@@ -242,7 +257,10 @@ export async function init() {
             newDiscoveries = true;
           }
 
-          if (!letterElement.classList.contains("scoreboard__letter--correct") || letterElement.innerText === "") {
+          if (
+            !letterElement.classList.contains("scoreboard__letter--correct") ||
+            letterElement.innerText === ""
+          ) {
             letterElement.classList.add("scoreboard__letter--correct");
           }
 
@@ -257,14 +275,19 @@ export async function init() {
         // Skip already correct letters
         if (
           letterElement.classList.contains("scoreboard__letter--correct") &&
-          ((gameState.currentLevel === "easy" && i < 2) || (gameState.currentLevel === "medium" && i < 1) || gameState.discoveredLetters[i])
+          ((gameState.currentLevel === "easy" && i < 2) ||
+            (gameState.currentLevel === "medium" && i < 1) ||
+            gameState.discoveredLetters[i])
         ) {
           continue;
         }
 
         if (guessParts[i] === wordParts[i]) {
           // Already handled
-        } else if (wordParts.includes(guessParts[i]) && map[guessParts[i]] > 0) {
+        } else if (
+          wordParts.includes(guessParts[i]) &&
+          map[guessParts[i]] > 0
+        ) {
           letterElement.classList.add("scoreboard__letter--close");
           map[guessParts[i]]--;
         } else {
@@ -313,7 +336,9 @@ export async function init() {
       // Clear ghost letters from previous row
       if (currentRow > 0) {
         for (let i = 0; i < ANSWER_LENGTH; i++) {
-          letters[(currentRow - 1) * ANSWER_LENGTH + i].classList.remove("scoreboard__letter--ghost");
+          letters[(currentRow - 1) * ANSWER_LENGTH + i].classList.remove(
+            "scoreboard__letter--ghost",
+          );
         }
       }
     } catch (error) {
