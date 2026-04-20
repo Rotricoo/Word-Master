@@ -66,9 +66,8 @@ body {
   padding: 1rem 0.5rem;
   text-align: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto, 1fr, auto;
   gap: 0.5rem;
 }
 
@@ -77,12 +76,26 @@ body {
   font-weight: var(--bold-font);
   margin: 0;
   color: var(--fontBase);
-  order: 1;
+  align-items: center;
 }
 
 /* Winner state animation */
 .header--winner {
   animation: rainbow 2s linear infinite;
+}
+
+/* Header timer */
+.header__timer {
+  font-size: 1.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  opacity: 0.1;
+}
+
+.header__timer:hover {
+  transition: opacity 1s;
+  opacity: 1;
 }
 
 /* Header controls (theme toggle, level button) */
@@ -435,6 +448,23 @@ body {
 }
 
 /* =====================================
+   GIVE UP BUTTON
+   ===================================== */
+
+.give-up-button {
+  display: none;
+  font-size: 1rem;
+  color: white;
+  background-color: red;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: var(--bold-font);
+}
+.give-up-button--visible {
+  display: block;
+}
+
+/* =====================================
    TEMPORARY MESSAGES
    ===================================== */
 
@@ -574,20 +604,29 @@ body {
 
 @media (min-width: 768px) {
   .header {
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     padding: 1.5rem;
   }
 
+  .header__timer {
+    grid-column: 1;
+    justify-self: start;
+  }
+
   .header__title {
+    grid-column: 2;
+    justify-self: center;
     font-size: 3.5rem;
+    align-items: center;
   }
 
   .header__controls {
-    position: absolute;
+    grid-column: 3;
+    justify-self: end;
     top: 1.5rem;
     right: 1.5rem;
-    order: unset;
   }
 
   .header__theme-toggle,
