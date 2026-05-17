@@ -1,0 +1,218 @@
+/* =====================================
+   MODALS
+   ===================================== */
+
+/* Game result modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+.modal__content {
+  background: var(--bg-color);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 40rem;
+  width: 100%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.modal__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--fontBase);
+}
+
+/* Modal buttons container */
+.modal__options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Modal button styles */
+.modal__restart {
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: var(--bold-font);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  min-width: 12rem;
+}
+
+.modal__restart {
+  background: var(--almostThere-color);
+  color: var(--dark-color);
+}
+
+.modal__restart:hover {
+  background: #e6c200;
+}
+
+/* Level selection modal */
+.level-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+.level-modal__content {
+  background: var(--bg-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 35rem;
+  width: 100%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+.level-modal__title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--fontBase);
+}
+
+/* Level selection options */
+.level-modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.level-modal__option {
+  background: var(--Clear-color);
+  border: none;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.level-modal__option:hover {
+  background: var(--almostThere-color);
+  transform: translateY(-2px);
+}
+
+.level-modal__option--selected {
+  background: var(--correct-color);
+  color: white;
+}
+
+.level-modal__difficulty {
+  font-size: 1.3rem;
+  font-weight: var(--bold-font);
+  margin-bottom: 0.3rem;
+}
+
+.level-modal__description {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.level-modal__start-button {
+  background: var(--correct-color);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: var(--bold-font);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.level-modal__start-button:hover {
+  background: #087a00;
+}
+
+@media (min-width: 768px) {
+  /* Modal scaling */
+  .modal {
+    padding: 0;
+  }
+
+  .modal__content {
+    padding: 3rem;
+    max-width: 40rem;
+    width: 90%;
+  }
+
+  .modal__title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .modal__restart {
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    min-width: 12rem;
+  }
+
+  /* Level modal desktop layout */
+  .level-modal {
+    padding: 0;
+  }
+
+  .level-modal__content {
+    padding: 2rem;
+    max-width: 35rem;
+    width: 85%;
+  }
+
+  .level-modal__title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .level-modal__options {
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .level-modal__option {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .level-modal__difficulty {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .level-modal__description {
+    font-size: 1.1rem;
+  }
+
+  .level-modal__start-button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.4rem;
+  }
+}

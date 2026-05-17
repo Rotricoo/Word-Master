@@ -1,0 +1,18 @@
+/* =====================================
+   TEMPORARY MESSAGES
+   ===================================== */
+
+.temporary-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--incorrect-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: var(--bold-font);
+  z-index: 999;
+  animation: fadeInOut 2s ease;
+  font-size: 1.4rem;
+}

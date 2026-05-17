@@ -1,3 +1,11 @@
 {
-  "cSpell.ignoreWords": ["WORDLE"]
+  "cSpell.ignoreWords": ["WORDLE"],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/styles"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": true
 }

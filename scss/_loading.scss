@@ -1,0 +1,62 @@
+/* =====================================
+   LOADING OVERLAY
+   ===================================== */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay--show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loading-overlay__content {
+  background: var(--bg-color);
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+  margin: 0 1rem;
+}
+
+.loading-overlay__spinner {
+  font-size: 4rem;
+  animation: spin 1.8s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loading-overlay__text {
+  font-size: 1.6rem;
+  font-weight: var(--bold-font);
+  color: var(--fontBase);
+}
+
+@media (min-width: 768px) {
+  /* Loading overlay scaling */
+  .loading-overlay__content {
+    padding: 4rem;
+    margin: 0;
+  }
+
+  .loading-overlay__spinner {
+    font-size: 5rem;
+  }
+
+  .loading-overlay__text {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,92 @@
+/* =====================================
+   GAME BOARD (SCOREBOARD)
+   ===================================== */
+
+.scoreboard {
+  max-width: 30rem;
+  width: 100%;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 0.6rem;
+  column-gap: 0.6rem;
+}
+
+/* Individual letter tiles */
+.scoreboard__letter {
+  aspect-ratio: 1;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  border: 3px solid var(--Clear-color);
+  border-radius: 0.5rem;
+  font-weight: var(--bold-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  background: transparent;
+}
+
+/* Letter tile states */
+.scoreboard__letter:not(:empty) {
+  animation: letterPop 0.2s ease;
+  border-color: var(--dark-color);
+}
+
+/* Ghost letters (invalid word feedback) */
+.scoreboard__letter--ghost {
+  opacity: 0.15;
+  color: var(--fontBase);
+  background: transparent;
+  border-color: var(--Clear-color);
+}
+
+/* Wordle color states */
+.scoreboard__letter--correct {
+  background: var(--correct-color);
+  color: white;
+  border-color: var(--correct-color);
+}
+
+.scoreboard__letter--discovered {
+  background: var(--discovered-color);
+  color: white;
+  border-color: var(--discovered-color);
+}
+
+.scoreboard__letter--close {
+  background: var(--almostThere-color);
+  color: white;
+  border-color: var(--almostThere-color);
+}
+
+.scoreboard__letter--wrong {
+  background: var(--incorrect-color);
+  color: white;
+  border-color: var(--incorrect-color);
+}
+
+/* Invalid word animation state */
+.scoreboard__letter--invalid {
+  background: var(--incorrect-color);
+  color: white;
+  border-color: var(--incorrect-color);
+  animation: shake 0.6s ease;
+}
+
+@media (min-width: 768px) {
+  /* Scoreboard scaling */
+  .scoreboard {
+    max-width: 40rem;
+    margin: 1.3rem auto;
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  .scoreboard__letter {
+    height: 4.5rem;
+    width: 4.5rem;
+    font-size: 3rem;
+  }
+}

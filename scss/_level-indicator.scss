@@ -1,0 +1,18 @@
+/* =====================================
+   LEVEL INDICATOR
+   ===================================== */
+
+.level-indicator {
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
+.level-indicator__text {
+  background: var(--almostThere-color);
+  color: var(--dark-color);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: var(--bold-font);
+  display: inline-block;
+}

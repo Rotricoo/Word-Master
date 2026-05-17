@@ -1,0 +1,19 @@
+/* =====================================
+   GIVE UP BUTTON
+   ===================================== */
+
+.give-up-button {
+  display: none;
+  font-size: 1.1rem;
+  color: white;
+  background-color: var(--incorrect-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-weight: var(--bold-font);
+  margin-left: 1rem;
+}
+.give-up-button--visible {
+  display: inline-flex;
+}

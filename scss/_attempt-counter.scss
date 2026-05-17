@@ -1,0 +1,26 @@
+/* =====================================
+   ATTEMPT COUNTER
+   ===================================== */
+
+.attempt-counter {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: var(--bold-font);
+  margin: 2rem auto;
+  color: var(--fontBase);
+  padding: 1rem;
+  max-width: 25rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  /* Counter scaling */
+  .attempt-counter {
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 20rem;
+  }
+}
