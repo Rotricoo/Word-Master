@@ -1,12 +1,39 @@
 # Word Master
 
-A modern Wordle-inspired word guessing game built as an educational project to explore advanced web development concepts.
+A Wordle-inspired browser game built with Vanilla JavaScript, SCSS, BEM methodology, and a modular architecture.
 
 ## About This Project
 
-This project started as part of the [Complete Intro to Web Development](https://frontendmasters.com/courses/web-development-v3/) course by **Brian Holt** on Frontend Masters. While the course provided a solid foundation, I decided to expand significantly beyond the original requirements to explore more advanced web development techniques and create a polished, production-ready game.
+This project started as part of the [Complete Intro to Web Development](https://frontendmasters.com/courses/web-development-v3/) course by **Brian Holt** on Frontend Masters. While the course provided a solid foundation, I decided to expand significantly beyond the original requirements to explore more advanced web development techniques and create a polished, production-ready game. It evolved from a simple JavaScript exercise into a fully modular application featuring SCSS architecture, BEM methodology, responsive design, and multiple gameplay enhancements.
+
+## What I Learned
+
+Throughout this project, I practiced and improved my skills in:
+
+- Modular JavaScript architecture
+- ES Modules
+- SCSS organization and partials
+- BEM naming methodology
+- DOM manipulation
+- Responsive design
+- UI/UX improvements
+- Git and GitHub workflows
+
+## Live Demo
+
+https://rotricoo.github.io/Word-Master/
 
 ## Game Features
+
+- Multiple difficulty levels
+- Dynamic word hints
+- Timer system
+- Give Up feature
+- Light and Dark mode
+- Responsive design
+- Animated feedback messages
+- Loading states
+- Game result modal
 
 ### Core Gameplay
 
@@ -28,13 +55,35 @@ This project started as part of the [Complete Intro to Web Development](https://
 - **Modern Modal System** instead of basic alerts
 - **Loading States** with blur effects
 
-## Technologies Used
+## Technologies
 
-- **HTML5** - Semantic markup structure
-- **CSS3** - Modern styling with CSS variables, grid, flexbox, and animations
-- **Vanilla JavaScript** - ES6+ features, async/await, DOM manipulation
-- **External API** - Word validation and random word generation
-- **Local Storage** - Settings persistence
+- HTML5
+- SCSS / SASS
+- Vanilla JavaScript (ES Modules)
+- BEM Methodology
+- Git & GitHub
+
+## Project Architecture
+
+The project follows a modular architecture:
+
+- game.js → core game logic
+- state.js → application state
+- level.js → difficulty management
+- modal.js → result modal
+- utilities.js → helper functions
+- domElements.js → DOM references
+
+### Styling Structure
+
+The project uses SCSS partials:
+
+- \_header.scss
+- \_scoreboard.scss
+- \_modal.scss
+- \_loading.scss
+- \_buttons.scss
+- \_tempMessage.scss
 
 ## Design Decisions
 
@@ -43,6 +92,17 @@ This project started as part of the [Complete Intro to Web Development](https://
 - **Created progressive letter discovery** to reduce frustration
 - **Built responsive design** for cross-device compatibility
 - **Added professional UI elements** like modals and loading states
+
+## Future Improvements
+
+Potential future improvements include:
+
+- Virtual keyboard
+- Improved accessibility
+- Additional game modes
+- Enhanced player statistics
+- Daily challenges
+- Vocabulary-learning mode
 
 ## License
 
